@@ -9,20 +9,24 @@ body {
 
 h1 {
   position: absolute;
-  left: 80px;
   top: 145px;
+  left: 80px;
+  font-weight: bold;
   font-size: 42px;
   font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
   color: #00D930;
+  -webkit-text-stroke: 1px #232724;
 }
 
 h2 {
   position: absolute;
   top: 210px;
   left: 80px;
+  font-weight: bold;
   font-size: 30px;
   font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
   color: #00D930;
+  -webkit-text-stroke: 1px #232724;
 }
 
 heading.site-heading {
@@ -32,9 +36,9 @@ heading.site-heading {
   background-color: /*#34313F*/ white;
   padding-top: 10px;
   border-bottom: 1px solid rgba(52, 49, 63, 1);
-  -webkit-box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);
-  -moz-box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);
-  box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);
+  -webkit-box-shadow: inset 0px -1px 1px 0px rgba(51,46,68,.75);
+  -moz-box-shadow: inset 0px -1px 1px 0px rgba(51,46,68,.75);
+  box-shadow: inset 0px -1px 1px 0px rgba(51,46,68,.75);
 }
 
 div.text-logo {
@@ -63,10 +67,10 @@ main.main-content {
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 90.8%;
+  height: 91.3%;
   background-size: 185%;
   font-size: 0;
-  background-image: url("unsplash_lion1.jpg");
+  background-image: url("UsedImages/unsplash_lion1.jpg");
   opacity: 0.9;
 }
 
@@ -78,11 +82,6 @@ section.onboarding-entry {
   margin-top: 200px;
   opacity: 0.8;
   /*border: 1px solid pink;*/
-  /*border-radius: 20px;*/
-  /*-webkit-box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);
-  -moz-box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);
-  box-shadow: inset 0px -1px 3.5px 0px rgba(51,46,68,1);*/
-
 }
 
 form#onboarding1 {
@@ -91,7 +90,6 @@ form#onboarding1 {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-
 }
 
 div.inputgroup-row {
@@ -135,6 +133,15 @@ input#user-email {
   outline: none;
 }
 
+#date-label {
+  position: absolute;
+  bottom: 220px;
+  left: 375px;
+  font-size: 11px;
+  color: white;
+  font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+}
+
 input#create-account {
   width: 100%;
   margin-right: 14%;
@@ -152,4 +159,169 @@ input#create-account {
 input#create-account:hover {
   background: #2B803E;
   text-decoration: none;
+}
+
+
+/*HOME.HTML DASHBOARD PAGE*/
+/* ------------------------- */
+
+main.dashboard-page-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 91.3%;
+  font-size: 0;
+  background-size: 100%;
+  /*background-color: #34313F;*/
+  background-image: url("UsedImages/ocean_sunrise.jpeg");
+  opacity: 1;
+}
+
+section.dashboard-frame {
+  display: flex;
+  flex-direction: column;
+  width: 1100px;
+  height: 550px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+nav.dashboard-top-nav {
+  width: 1100px;
+  height: 36px;
+  /*background-color: rgb(217, 210, 212);*/
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: 1px solid #34313F;
+}
+
+ul.dashboard-categories {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 1100px;
+  height: 36px;
+}
+
+.dashboard-categories li {
+  display: flex;
+  width: 33.33333%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  /*font-size: 18px;*/
+  font-size: 20px;
+  color: white;
+  -webkit-text-stroke: .8px #232724;
+  font-weight: bold;
+  font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+  /*color: black;*/
+  border-right: 1px solid #34313F;
+}
+
+.dashboard-categories li:hover {
+  font-size: 20px;
+  color: white;
+  -webkit-text-stroke: .8px #232724;
+}
+
+/*li#overview-category {
+  background-color: rgba(154, 158, 167, 0.65);
+  border-top-left-radius: 15px;
+  color: black;
+  -webkit-text-stroke: .8px #232724;
+  font-size: 20px;
+}
+
+li#overview-category:hover {
+  background-color: rgba(154, 158, 167, 0.2);
+}*/
+
+li#sleep-category {
+  background-color: rgba(62, 21, 195, 1);
+  border-top-left-radius: 15px;
+}
+
+li#sleep-category:hover {
+  background-color: rgba(62, 21, 195, 0.5) !important;
+}
+
+li#nutrition-category {
+  background-color: rgba(43, 128, 62, 1);
+}
+
+li#nutrition-category:hover {
+  background-color: rgba(43, 128, 62, 0.5) !important;
+}
+
+li#exercise-category {
+  background-color: rgba(220, 11, 35, 1);
+  border-top-right-radius: 15px;
+  border-style: none;
+}
+
+li#exercise-category:hover {
+  background-color: rgba(220, 11, 35, 0.5) !important;
+}
+
+/* Sub-Menu Styles */
+/* ------------------------- */
+
+nav.dashboard-bottom-nav {
+  width: 1100px;
+  height: 30px;
+  /*background-color: rgb(217, 210, 212);*/
+  border-bottom: 1px solid #34313F;
+}
+
+ul.dashboard-sub-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 1100px;
+  height: 30px;
+}
+
+.dashboard-sub-menu li {
+  display: flex;
+  width: 25%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+  border-right: 1px solid #34313F;
+}
+
+li.sub-overview {
+  background-color: white;
+}
+
+li.sub-overview:hover {
+  background-color: white !important;
+}
+
+li.sub-update {
+  background-color: rgba(205, 205, 205, 0.5);
+}
+
+li.sub-update:hover {
+  background-color: white !important;
+}
+
+li.sub-goals {
+  background-color: rgba(205, 205, 205, 0.5);
+}
+
+li.sub-goals:hover {
+  background-color: white !important;
+}
+
+li.sub-log {
+  background-color: rgba(205, 205, 205, 0.5);
+}
+
+li.sub-log:hover {
+  background-color: white !important;
 }
