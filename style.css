@@ -481,20 +481,21 @@ h4.dashboard-section-heading {
 div#sleep-overview-update {
   height: 40%;
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   /*background-color: grey;*/
 }
 
 div#sleep-overview-graph {
   height: 60%;
   width: 100%;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
+  margin-bottom: 10px;
 }
 
 div#sleep-overview-goals1 {
   height: 40%;
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
 }
 
 div#sleep-overview-goals2 {
@@ -616,6 +617,23 @@ div.inputgroup-row2 {
 label[for=yesterdaySleepTime] {
   padding: 10px 0 0 0;
   margin-right: 32px;
+  font-size: 18px;
+  font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+}
+
+div#recent-sleep-data {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 10px 0 0 0;
+}
+
+div.basic-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+p.overview-text {
+  margin: 0 0 10px 20px;
   font-size: 18px;
   font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
 }

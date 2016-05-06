@@ -38,12 +38,15 @@ $(function () {
   };
 
 
-  var sleepData = {
-    today: {
-      sleepTime: "",
-      wakeTime: "",
-    }
-  };       // for storing and updating sleep data in local storage
+  // var sleepData = {
+  //   today: {
+  //     sleepTime: "",
+  //     wakeTime: "",
+  //   }
+  // };
+  // for storing and updating sleep data in local storage
+
+  // var sleepUpdateSwitch = ;
 
   var nutritionData = {};   // for storing and updating nutrition data in local storage
   var exerciseData = {};    // for storing and updating exercise data in local storage
@@ -51,6 +54,7 @@ $(function () {
   var localStorage1; // = userAccountData2 on index.html
 
   var localStorage2; // = userAccountData2 on home.html
+
 
 // 1 - localStorage account data storage and page nav mechanism
 // --------------------------------------------------------
@@ -68,7 +72,10 @@ $(function () {
       localStorage2 = localStorage.userAccountData2;
       localDateInfo.accountDayCounter = 0;
       localDateInfo.testCounter = 0;
+
       sleepNeedsUpdate = true;
+      localStorage.sleepUpdateSwitch = "on";
+
       localStorage.localDateInfo = JSON.stringify(localDateInfo);
       console.log(localStorage2);
     }
@@ -215,7 +222,7 @@ function subMenuSelectDislay() {
     }
   };
 
-function setUpdateDisplay() {
+function setUpDateDisplay() {
   if(sleepNeedsUpdate === false) {
     $('#sleepUpdate').css('display', 'none');
     $('#sleepUpdated').css('display', 'flex');
@@ -225,7 +232,6 @@ function setUpdateDisplay() {
   }
 };
 
-
 $('#sleep-category').on('click', function(){
   dashCatSelected = "sleep";
   if(sleepNeedsUpdate === false) {
@@ -233,7 +239,7 @@ $('#sleep-category').on('click', function(){
   } else if (sleepNeedsUpdate === true) {
     subMenuSelected = "update";
   }
-  setUpdateDisplay();
+  setUpDateDisplay();
   console.log(dashCatSelected);
   console.log(subMenuSelected);
   $('nav.dashboard-bottom-nav').css("visibility", "visible");
@@ -283,7 +289,7 @@ $('.sub-overview').on('click', function() {
 $('.sub-update').on('click', function() {
   subMenuSelected = "update";
   subMenuSelectDislay();
-  setUpdateDisplay();
+  setUpDateDisplay();
   displayDashboardSection();
 });
 
@@ -305,12 +311,25 @@ $('.sub-log').on('click', function() {
 
 var lsDateObject = JSON.parse(localStorage.localDateInfo);
 
-var sleepNeedsUpdate = false;
+// console.log(typeof sleepNeedsUpdate);
 
-console.log("recent local storage");
-console.log(lsDateObject);
-console.log("current localDateInfo variable");
-console.log(localDateInfo);
+// console.log("recent local storage");
+// console.log(lsDateObject);
+// console.log("current localDateInfo variable");
+// console.log(localDateInfo);
+
+
+  console.log(localStorage.sleepUpdateSwitch);
+
+  if (localStorage.sleepUpdateSwitch === "on") {
+    sleepNeedsUpdate = true;
+    console.log("sleepUpdateSwitch = on")
+  } else if(localStorage.sleepUpdateSwitch === "off") {
+    sleepNeedsUpdate = false
+    console.log("sleepUpdateSwitch = off")
+  };
+
+  console.log(sleepNeedsUpdate);
 
 // setInterval(dateNow(), 1000);
 // function dateNow() {
@@ -469,8 +488,7 @@ function validateNewFakeDay() {
   if (newMinute !== oldMinute) {
     localDateInfo.testCounter += 1;
     sleepNeedsUpdate = true;
-    console.log(localDateInfo.testCounter);
-    console.log(localDateInfo.testCounter);
+    localStorage.sleepUpdateSwitch = "on";
     console.log(localDateInfo.testCounter);
     console.log(localDateInfo.testCounter);
     console.log(localDateInfo.testCounter);
@@ -542,45 +560,73 @@ function setTodayDateText() {
       localDateInfo.currentMonthText = "December";
     }
   }
-  console.log(localDateInfo.currentMonthText);
-  console.log(localDateInfo.currentDoWText);
-  console.log(localDateInfo.currentYear);
 };
 
 
 // Storing and Interacting with Sleep data
-
-$('form').on("submit", function(e){
-  e.preventDefault();
-  sleepNeedsUpdate = false;
-  setUpdateDisplay(); 
-
-  var newSleepTime = $('input[name=yesterdaySleepTime]')[0].value;
-  var newWakeTime = $('input[name=todayWakeTime]')[0].value;
-  var form = $('#sleepUpdateForm')[0];
-
-  var newSleepData = new NewSleepData(newSleepTime, newWakeTime, localDateInfo.testCounter);
-  console.log(newSleepData);
-  eval("sleepData.d" + localDateInfo.testCounter + "=newSleepData");
-  eval("localStorage.sleepData.d" + localDateInfo.testCounter + "=JSON.stringify(newSleepData)");
-  localStorage.setItem(sleepData, sleepData);
-
-
-  sleepData.today.sleepTime = newSleepTime;
-  sleepData.today.wakeTime = newWakeTime;
-
-  form.reset();
-
-  console.log(sleepData);
-  console.log(localStorage.sleepData);
-})
-
 
 function NewSleepData(sleepTime, wakeTime, dayNumber) {
   this.sleepTime = sleepTime;
   this.wakeTime = wakeTime;
   this.dayNumber = dayNumber;
 }
+
+$('form').on("submit", function(e){
+  e.preventDefault();
+
+  var sleepData = {
+    today: {
+      sleepTime: "",
+      wakeTime: "",
+    }
+  };
+
+  console.log('Logging SleepData');
+  console.log(JSON.stringify(sleepData));
+
+  sleepNeedsUpdate = false;
+  localStorage.sleepUpdateSwitch = "off";
+  console.log(localStorage.sleepUpdateSwitch);
+  setUpDateDisplay();
+
+  var currentDayProperty = "";
+
+  var newSleepTime = $('input[name=yesterdaySleepTime]')[0].value;
+  var newSleepTimeCalc = newSleepTime.split(":");
+  console.log(newSleepTime);
+  console.log(newSleepTimeCalc);
+  var newWakeTime = $('input[name=todayWakeTime]')[0].value;
+  console.log(newWakeTime);
+  // var totalHours =
+
+  $('#lastnight').html(newSleepTime)
+  $('#thismorning').html(newWakeTime)
+
+  // $('#totalhours').html()
+
+  var newSleepData = new NewSleepData(newSleepTime, newWakeTime, localDateInfo.testCounter);
+  // var currentDayProperty = eval("d" + localDateInfo.testCounter);
+  console.log(localDateInfo.testCounter);
+  // eval("currentDayProperty = d" + localDateInfo.testCounter.quote() + ";");
+  // console.log(sleepData.currentDayProperty);
+  // eval("sleepData.d" + localDateInfo.testCounter + "=newSleepData;");
+  console.log(sleepData);
+  // console.log(JSON.parse(localStorage.sleepData));
+  localStorage.sleepData = JSON.stringify(sleepData);
+  console.log(localStorage.sleepData);
+  // eval("localStorage.sleepData.d" + localDateInfo.testCounter + "=JSON.stringify(newSleepData);");
+  // localStorage.setItem(sleepData, JSON.stringify(sleepData));
+
+  sleepData.today.sleepTime = newSleepTime;
+  sleepData.today.wakeTime = newWakeTime;
+
+  var form = $('#sleepUpdateForm')[0];
+  form.reset();
+
+  console.log(sleepData);
+  console.log(localStorage.sleepData);
+});
+
 
 // var newSleepData = new NewSleepData(newSleepTime, newWakeTime, localDateInfo.testCounter);
 // eval("sleepData.d" + localDateInfo.testCounter + "=newSleepData");
@@ -597,11 +643,6 @@ function NewSleepData(sleepTime, wakeTime, dayNumber) {
 
 // Storing and Interacting with Nutrition data
 // Storing and Interacting with Exercise data
-
-
-
-
-
 
 
 
