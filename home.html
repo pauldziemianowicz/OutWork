@@ -38,33 +38,125 @@
       </nav>
 
       <section class="dashboard-body">
-
+      <h1 class="welcome" id="welcome1">Welcome, </h1>
+      <h1 class="welcome" id="welcome2">Select a Category to Access Your Personal Health Assistant</h1>
         <!-- <section class="dashboard-main">
         Overview
         </section> -->
 
         <section class="dashboard-sleep">
-        Sleep
-          <section class="dashboard-overview">
-            <div class="dashboard-overview">
+          <section class="sleep-overview">
+
+            <div class="dash-date">
+              <div class="today-date">
+              </div>
+              <div class="date-border">
+              </div>
             </div>
+
+            <div class="sleep-overview">
+              <div class="col-left">
+
+                <div id="vertical-border">
+                </div>
+
+                <div id="sleep-overview-update">
+                  <h3 class="dashboard-section-heading">Your Recent Sleep</h3>
+
+                </div>
+
+                <div id="sleep-overview-graph">
+                  <h3 class="dashboard-section-heading">Sleep Trends</h3>
+                  <div id="h-border-left">
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-right">
+
+                <div id="sleep-overview-goals1">
+                  <h3 class="dashboard-section-heading">Upcoming Sleep</h3>
+                </div>
+
+                <div id="sleep-overview-goals2">
+                  <div id="h-borders-right">
+                  </div>
+                </div>
+
+                <div id="sleep-overview-notes">
+                </div>
+
+              </div>
+            </div>
+
           </section>
-          <section class="dashboard-update">
-            <div class="dashboard-update">
+
+          <section class="sleep-update">
+
+            <div class="dash-date">
+              <div class="today-date">
+              </div>
+              <div class="date-border">
+              </div>
             </div>
+
+            <div class="sleep-update">
+              <div id="sleepUpdate">
+                <h3 class="dashboard-section-heading">You Have No Sleep History Yet For Last Night</h3>
+                <h4 class="dashboard-section-heading">Update Your Recent Sleep History</h4>
+                <form id="sleepUpdateForm" action="" method="post">
+                  <div class="inputgroup-row2">
+                    <label for="yesterdaySleepTime">What time did you go to sleep last night?</label>
+                    <input id= "yesterdaySleepTime" type="time" name="yesterdaySleepTime" required>
+                  </div>
+                  <div class="inputgroup-row2">
+                    <label for="todayWakeTime">What time did you wake up this morning?</label>
+                    <input id= "todayWakeTime" type="time" name="todayWakeTime" required>
+                  </div>
+                  <div class="inputgroup-row2">
+                    <input type="submit" id="updateSleep" value="Submit">
+                  </div>
+                </form>
+              </div>
+              <div id="sleepUpdated">
+                <h3 class="dashboard-section-heading" id="already-updated">Today's Update Has Been Submitted</h3>
+              </div>
+            </div>
+
           </section>
-          <section class="dashboard-goals">
-            <div class="dashboard-goals">
+
+          <section class="sleep-goals">
+
+            <div class="dash-date">
+              <div class="today-date">
+              </div>
+              <div class="date-border">
+              </div>
             </div>
+
+            <div class="sleep-goals">
+            </div>
+
           </section>
-          <section class="dashboard-log">
-            <div class="dashboard-log">
+
+          <section class="sleep-log">
+
+            <div class="dash-date">
+              <div class="today-date">
+              </div>
+              <div class="date-border">
+              </div>
             </div>
+
+            <div class="sleep-log">
+            </div>
+
           </section>
         </section>
 
+
         <section class="dashboard-nutrition">
-        Nutrition
+          <h1 class="coming-soon">Coming Soon!</h1>
           <section class="dashboard-overview">
           </section>
           <section class="dashboard-update">
@@ -76,7 +168,7 @@
         </section>
 
         <section class="dashboard-exercise">
-        Exercise
+          <h1 class="coming-soon">Coming Soon!</h1>
           <section class="dashboard-overview">
           </section>
           <section class="dashboard-update">
