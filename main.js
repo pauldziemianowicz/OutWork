@@ -585,8 +585,9 @@ $('form').on("submit", function(e){
   console.log(JSON.stringify(sleepData));
 
   sleepNeedsUpdate = false;
+
   localStorage.sleepUpdateSwitch = "off";
-  console.log(localStorage.sleepUpdateSwitch);
+
   setUpDateDisplay();
 
   var currentDayProperty = "";
@@ -596,7 +597,11 @@ $('form').on("submit", function(e){
   console.log(newSleepTime);
   console.log(newSleepTimeCalc);
   var newWakeTime = $('input[name=todayWakeTime]')[0].value;
+  var newWakeTimeCalc = newWakeTime.split(":");
   console.log(newWakeTime);
+  console.log(newWakeTimeCalc);
+  var newWakeTimeCalc = newWakeTimeCalc.forEach;
+  console.log(newWakeTimeCalc);
   // var totalHours =
 
   $('#lastnight').html(newSleepTime)
